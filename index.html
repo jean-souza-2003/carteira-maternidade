@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maternidade e paternidade no Direito do Trabalho</title>
+<meta name="description" content="Os direitos de quem vai ter ou adotar um filho, anotados folha por folha como numa carteira de trabalho.">
+<meta name="theme-color" content="#1B2A54">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Carteira de Trabalho: maternidade e paternidade">
+<meta property="og:description" content="Os direitos de quem vai ter ou adotar um filho, anotados folha por folha. Trabalho acadêmico de Direito, UMC, 2026.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Caveat:wght@500..700&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  color-scheme:light;
+  --desk:#C5CEC8;--paper:#EEF2EA;--paper-2:#E2E9DD;--guil:#5F8A73;--ink:#1E2A24;--muted:#4F5F56;--rule:#93A89A;--frame:rgba(147,168,154,.65);
+  --pen:#1D42A3;--stamp:#5A3B9B;--red:#AC3528;--blend:multiply;
+  --navy:#1B2A54;--navy-2:#111C3B;--gold:#CDAE6A;--gold-2:#E2CD98;--on-navy:#DCE2F0;
+  --hand:"Caveat","Segoe Print","Bradley Hand","Comic Sans MS",cursive;
+  --sans:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --turn:.7s;--ease:cubic-bezier(.45,.05,.2,1);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --desk:#0D1210;--paper:#1B231F;--paper-2:#232D28;--guil:#6C8E79;--ink:#DCE5DF;--muted:#A3B2A8;--rule:#4A5E51;--frame:rgba(74,94,81,.8);
+    --pen:#9AB6FF;--stamp:#C1A9F4;--red:#FF907F;--blend:normal;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --desk:#0D1210;--paper:#1B231F;--paper-2:#232D28;--guil:#6C8E79;--ink:#DCE5DF;--muted:#A3B2A8;--rule:#4A5E51;--frame:rgba(74,94,81,.8);
+  --pen:#9AB6FF;--stamp:#C1A9F4;--red:#FF907F;--blend:normal;
+}
+html{background:var(--desk)}
+body{margin:0;background:var(--desk);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-text-size-adjust:100%}
+html.js,.js body{height:100%;overflow:hidden;overscroll-behavior:none}
+:focus-visible{outline:2.5px solid var(--pen);outline-offset:3px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Estrutura ---------- */
+.app{display:flex;flex-direction:column;min-height:100%}
+.js .app{height:100%}
+.stage{flex:1;min-height:0;display:flex;justify-content:center;padding:16px 14px}
+.js .stage{padding:14px 14px 8px}
+.book{position:relative;width:100%;max-width:470px;container-type:inline-size}
+.js .book{height:100%;max-height:860px;align-self:center;perspective:2400px;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+.js .book::before{content:"";position:absolute;inset:5px -5px -5px 5px;border-radius:3px 12px 12px 3px;background:var(--paper-2);border:1px solid var(--rule);box-shadow:0 18px 34px -20px rgba(10,25,18,.6)}
+
+/* ---------- Folha ---------- */
+.sheet{position:relative;margin:0 0 24px;border-radius:3px 12px 12px 3px;overflow:hidden;background:var(--paper);
+  box-shadow:0 1px 0 rgba(30,40,35,.08),0 16px 32px -20px rgba(15,30,22,.5);outline:1px solid var(--frame);outline-offset:-10px}
+.js .sheet{position:absolute;inset:0;margin:0;transform-origin:0 50%;-webkit-backface-visibility:hidden;backface-visibility:hidden;
+  transition:transform var(--turn) var(--ease),visibility 0s linear 0s}
+.js .sheet.turned{transform:rotateY(-180deg);visibility:hidden;transition:transform var(--turn) var(--ease),visibility 0s linear var(--turn)}
+.js .sheet.below{visibility:hidden}
+.js .sheet.dragging{transition:none;visibility:visible}
+.js .sheet.instant,.js .sheet.instant::after{transition:none}
+.sheet::before{content:"";position:absolute;inset:0;pointer-events:none;background:var(--guil);opacity:.16;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='26' viewBox='0 0 90 26'%3E%3Cg fill='none' stroke='%23000' stroke-width='.7'%3E%3Cpath d='M0 13C11 1 34 1 45 13S79 25 90 13'/%3E%3Cpath d='M0 13C11 25 34 25 45 13S79 1 90 13'/%3E%3Cpath d='M0 6C11 -2 34 -2 45 6S79 14 90 6' opacity='.55'/%3E%3Cpath d='M0 20C11 28 34 28 45 20S79 12 90 20' opacity='.55'/%3E%3C/g%3E%3C/svg%3E") 0 0/90px 26px repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='26' viewBox='0 0 90 26'%3E%3Cg fill='none' stroke='%23000' stroke-width='.7'%3E%3Cpath d='M0 13C11 1 34 1 45 13S79 25 90 13'/%3E%3Cpath d='M0 13C11 25 34 25 45 13S79 1 90 13'/%3E%3Cpath d='M0 6C11 -2 34 -2 45 6S79 14 90 6' opacity='.55'/%3E%3Cpath d='M0 20C11 28 34 28 45 20S79 12 90 20' opacity='.55'/%3E%3C/g%3E%3C/svg%3E") 0 0/90px 26px repeat}
+.js .sheet::after{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.28) 100%);opacity:0;transition:opacity var(--turn) var(--ease)}
+.js .sheet.turned::after{opacity:1}
+.leaf{position:relative;z-index:1;display:flex;flex-direction:column;padding:24px 20px 16px 24px;box-shadow:inset 14px 0 14px -14px rgba(0,0,0,.28)}
+.js .leaf{height:100%;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+.page-head{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:2px 14px;margin-bottom:14px}
+.page-head h2{grid-column:1;grid-row:1;margin:0;font-stretch:118%;font-weight:800;font-size:clamp(1.45rem,6.2cqi,1.95rem);line-height:1.04;letter-spacing:-.012em;text-wrap:balance}
+.pg{grid-column:2;grid-row:1;font-stretch:75%;font-weight:600;font-size:.8rem;color:var(--muted);white-space:nowrap}
+.when{grid-column:1/-1;margin:3px 0 0;color:var(--muted);font-size:.92rem;line-height:1.3}
+.fields{margin:0;display:grid;gap:9px}
+.field dt{font-stretch:78%;font-weight:600;font-size:.78rem;color:var(--muted);letter-spacing:.01em}
+.field dd{margin:0;font-family:var(--hand);font-weight:600;font-size:1.42rem;line-height:1.1;color:var(--pen);padding:1px 0 6px;
+  background-image:linear-gradient(to right,var(--rule) 45%,transparent 0);background-size:6px 1px;background-repeat:repeat-x;background-position:0 100%}
+.obs{margin:16px 0 0;padding:1px 0 1px 12px;border-left:2px solid var(--pen);font-family:var(--hand);font-weight:600;font-size:1.32rem;line-height:1.13;color:var(--pen)}
+.txt{margin:14px 0 0;font-size:.97rem;line-height:1.5;max-width:62ch}
+
+.foot{margin-top:auto;padding-top:14px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.foot.end{justify-content:flex-end}
+.stamp{--r:-6deg;flex:none;display:inline-flex;flex-direction:column;align-items:center;gap:2px;max-width:58%;color:var(--stamp);border:2.5px solid currentColor;border-radius:4px;outline:1px solid currentColor;outline-offset:2px;padding:5px 10px 6px;margin:0 4px 6px 0;
+  font-stretch:70%;font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:.76rem;line-height:1.15;text-align:center;transform:rotate(var(--r));opacity:.92;mix-blend-mode:var(--blend);
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -4.2 3.05'/%3E%3C/filter%3E%3Crect width='170' height='170' filter='url(%23n)'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -4.2 3.05'/%3E%3C/filter%3E%3Crect width='170' height='170' filter='url(%23n)'/%3E%3C/svg%3E")}
+.stamp small{font-size:.66em;letter-spacing:.16em;font-weight:700}
+
+/* Detalhes */
+.more-btn{display:none;align-items:center;gap:9px;min-height:44px;padding:0;border:0;background:none;color:var(--ink);font:inherit;font-weight:700;font-stretch:92%;font-size:.95rem;cursor:pointer;text-align:left}
+.js .more-btn{display:inline-flex}
+.ico{width:22px;height:22px;flex:none;border:1.5px solid currentColor;border-radius:50%;display:grid;place-items:center}
+.more-panel{position:relative;z-index:3;margin:0 24px 20px;border-top:1px dashed var(--rule)}
+.js .more-panel{position:absolute;left:0;right:0;bottom:0;max-height:90%;margin:0;display:flex;flex-direction:column;background:var(--paper-2);border-top:1px solid var(--rule);border-radius:14px 14px 0 0;box-shadow:0 -14px 30px -18px rgba(0,0,0,.5);
+  transform:translateY(102%);visibility:hidden;transition:transform .35s cubic-bezier(.3,.7,.2,1),visibility 0s linear .35s}
+.js .sheet.open .more-panel{transform:none;visibility:visible;transition:transform .35s cubic-bezier(.3,.7,.2,1),visibility 0s}
+.more-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 10px 2px 20px}
+.more-head h3{margin:0;font-size:1.05rem;font-weight:800;font-stretch:108%}
+.more-close{display:none;min-height:44px;padding:0 14px;border:1.5px solid var(--ink);border-radius:999px;background:transparent;color:var(--ink);font:inherit;font-weight:700;font-stretch:90%;font-size:.9rem;cursor:pointer}
+.js .more-close{display:inline-block}
+.more-body{padding:4px 20px 20px;font-size:.95rem;line-height:1.5}
+.js .more-body{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.more-body p{margin:.3em 0 .75em;max-width:62ch}
+.more-body ul{margin:.2em 0 .75em;padding-left:1.1em}
+.more-body li{margin:.4em 0}
+.ref{color:var(--muted);font-size:.85rem}
+
+/* Calendário de dias */
+.days{margin:16px 0 0;display:grid;gap:12px}
+.days-l{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 6px;font-size:.82rem;font-weight:600;font-stretch:85%;color:var(--muted)}
+.days-l b{font-stretch:112%;font-weight:800;font-size:1.05rem;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:3px}
+.grid i{display:block;aspect-ratio:1/1;border-radius:2px;border:1px solid var(--rule)}
+.grid i.on{background:var(--pen);border-color:var(--pen)}
+.grid i.ec{border-color:var(--pen);background:repeating-linear-gradient(135deg,var(--pen) 0 1.3px,transparent 1.3px 4px);opacity:.7}
+
+/* 2027 */
+.meter{margin:0 0 14px;padding:14px 14px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--paper-2)}
+.years{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px}
+.years button{font:inherit;font-weight:700;font-stretch:85%;font-size:.95rem;min-height:44px;border-radius:6px;border:1.5px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.years button[aria-pressed="true"]{border-color:var(--pen);color:var(--pen);box-shadow:inset 0 0 0 1px var(--pen)}
+.meter-n{margin:0 0 8px;font-stretch:120%;font-weight:800;font-size:2.2rem;line-height:1}
+.meter-n small{font-size:.48em;font-weight:700;font-stretch:100%;margin-left:.25em}
+.meter .grid i{transition:background-color .2s ease calc(var(--i)*22ms),border-color .2s ease calc(var(--i)*22ms)}
+.meter-note{margin:8px 0 0;font-size:.86rem;line-height:1.4;color:var(--muted);min-height:2.8em}
+
+/* Mito ou verdade */
+.quiz-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 8px;font-size:.88rem;font-weight:700;font-stretch:88%;color:var(--muted)}
+.quiz-top b{color:var(--ink)}
+.qdots{display:flex;gap:6px;margin:0 0 14px}
+.qdots i{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--rule)}
+.qdots i.now{border-color:var(--ink)}
+.qdots i.ok{background:var(--pen);border-color:var(--pen)}
+.qdots i.no{background:var(--red);border-color:var(--red)}
+.qcard{display:grid;gap:14px;padding:16px;border:1px solid var(--rule);border-radius:8px;background:var(--paper-2)}
+.qtext{margin:0;font-weight:700;font-size:1.18rem;line-height:1.35}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.choices button{font:inherit;font-stretch:72%;font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:.92rem;min-height:48px;border-radius:5px;border:2px solid currentColor;background:var(--paper);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .12s ease,opacity .2s ease}
+.choices button:active{transform:scale(.96)}
+.choices button:disabled{opacity:.4;cursor:default;transform:none}
+.b-mito{color:var(--red)}
+.b-verdade{color:var(--stamp)}
+.choices .b-mito.picked{background:var(--red);color:var(--paper);opacity:1}
+.choices .b-verdade.picked{background:var(--stamp);color:var(--paper);opacity:1}
+.qres{display:grid;gap:8px}
+.qres[hidden],.qcard[hidden]{display:none}
+.res-row{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;margin:0}
+.res{font-weight:800;font-size:1rem}
+.a{margin:0;font-size:.97rem;line-height:1.45}
+.verdict{display:inline-block;border:2px solid currentColor;border-radius:3px;padding:2px 9px;font-stretch:70%;font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:.86rem;transform:rotate(-4deg);margin:2px 0 2px 2px}
+.verdict.mito{color:var(--red)}
+.verdict.verdade{color:var(--stamp)}
+.pill{justify-self:start;min-height:46px;padding:0 20px;border-radius:999px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);font:inherit;font-weight:700;font-stretch:90%;font-size:.95rem;cursor:pointer}
+.pill[hidden]{display:none}
+.qnext{margin-top:12px}
+.qend{display:grid;gap:12px;padding:18px 16px;border:1px solid var(--rule);border-radius:8px;background:var(--paper-2)}
+.qend[hidden]{display:none}
+.qend-n{margin:0;font-stretch:118%;font-weight:800;font-size:1.7rem;line-height:1.1}
+.qend p{margin:0}
+
+/* Capa e contracapa */
+.sheet.navy{background:radial-gradient(130% 90% at 28% 16%,#2B3E74 0%,var(--navy) 50%,var(--navy-2) 100%);outline:none;color:var(--on-navy);
+  box-shadow:0 26px 44px -24px rgba(5,10,25,.75)}
+.sheet.navy::before{background:none;-webkit-mask:none;mask:none;opacity:.2;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23g)'/%3E%3C/svg%3E")}
+.sheet.navy .leaf{box-shadow:inset 14px 0 16px -14px rgba(0,0,0,.7)}
+.cover-in{align-items:center;justify-content:center;text-align:center;padding:12% 9%;color:var(--gold);text-shadow:0 1px 0 rgba(0,0,0,.45),0 -1px 0 rgba(255,236,190,.12);min-height:520px}
+.js .cover-in{min-height:0}
+.cover-kicker{margin:0;font-stretch:112%;font-weight:600;font-size:.82rem;font-size:3.4cqi;letter-spacing:.3em;text-transform:uppercase;padding-left:.3em}
+.foot-mark{width:19cqi;max-width:84px;min-width:56px;margin:11cqi 0 8cqi;color:var(--gold);filter:drop-shadow(0 1px 0 rgba(0,0,0,.5))}
+.cover-in h1{margin:0;font-stretch:116%;font-weight:800;font-size:2.2rem;font-size:10.2cqi;line-height:.98;letter-spacing:-.01em;text-wrap:balance;color:var(--gold-2)}
+.cover-sub{margin:4cqi 0 0;font-size:1rem;font-size:4.4cqi;font-weight:500}
+.cover-hint{display:none;position:absolute;left:0;right:0;bottom:7%;margin:0;font-size:.85rem;font-weight:500;color:var(--on-navy);opacity:.8;text-shadow:none;align-items:center;justify-content:center;gap:.5em}
+.js .cover-hint{display:flex}
+.back-in{padding:30px 24px 24px 28px}
+.back-in h2{margin:0 0 2px;color:var(--gold-2);font-stretch:116%;font-weight:800;font-size:1.75rem;line-height:1.05}
+.team-note{margin:0 0 14px;font-size:.82rem;color:var(--gold)}
+.team{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.team li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline;font-size:.95rem;line-height:1.3}
+.rgm{font-variant-numeric:tabular-nums;font-stretch:80%;font-weight:600;font-size:.86rem;letter-spacing:.02em;color:var(--gold)}
+.credit{margin:auto 0 0;padding-top:20px;display:flex;align-items:center;gap:12px;color:var(--gold);font-size:.88rem;line-height:1.4}
+.credit svg{width:24px;flex:none}
+
+/* ---------- Navegação ---------- */
+.navbar{display:none}
+.js .navbar{position:relative;flex:none;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;width:100%;max-width:500px;margin:0 auto;padding:10px 14px 10px}
+.prog{position:absolute;left:14px;right:14px;top:0;height:2px;border-radius:2px;background:var(--frame);overflow:hidden}
+.prog span{display:block;height:100%;background:var(--pen);transform-origin:0 50%;transform:scaleX(0);transition:transform .5s var(--ease)}
+.nav-btn{display:inline-flex;align-items:center;gap:6px;min-height:46px;padding:0 16px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:inherit;font-weight:700;font-stretch:90%;font-size:.95rem;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#prev{justify-self:start;padding-left:10px}
+#next{justify-self:end;padding-right:10px;background:var(--ink);color:var(--paper)}
+.nav-btn:disabled{opacity:.3;cursor:default}
+.nav-mid{display:grid;justify-items:center;min-height:46px;padding:2px 8px;border:0;background:none;color:var(--ink);font:inherit;cursor:pointer;line-height:1.2;-webkit-tap-highlight-color:transparent}
+.nav-mid span{font-weight:800;font-stretch:88%;font-size:.92rem;white-space:nowrap}
+.nav-mid small{font-size:.76rem;font-weight:600;color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.idx{position:absolute;left:14px;right:14px;bottom:calc(100% + 4px);z-index:50;max-height:min(68vh,560px);overflow:auto;background:var(--paper);border:1px solid var(--rule);border-radius:12px;box-shadow:0 20px 40px -16px rgba(0,0,0,.55);padding:6px}
+.idx[hidden]{display:none}
+.idx ol{list-style:none;margin:0;padding:0}
+.idx button{display:flex;width:100%;gap:12px;align-items:baseline;padding:10px;min-height:44px;border:0;background:none;font:inherit;color:var(--ink);font-weight:600;text-align:left;border-radius:8px;cursor:pointer}
+.idx button span{font-stretch:75%;color:var(--muted);min-width:2.2em;font-size:.85rem}
+.idx button[aria-current="true"]{background:var(--paper-2)}
+
+/* Telas mais baixas */
+@media (max-height:690px){
+  .js .stage{padding:10px 12px 4px}
+  .js .navbar{padding:8px 12px}
+  .js .leaf{padding:18px 18px 12px 22px}
+  .page-head{margin-bottom:10px}
+  .when{font-size:.88rem}
+  .fields{gap:6px}
+  .field dd{font-size:1.32rem;padding-bottom:4px}
+  .obs{margin-top:12px;font-size:1.22rem}
+  .txt{margin-top:10px;font-size:.93rem}
+  .foot{padding-top:10px}
+  .days{margin-top:12px;gap:8px}
+  .meter{padding:12px 12px 10px}
+  .meter-n{font-size:1.9rem}
+  .qcard{padding:14px;gap:12px}
+}
+
+/* ---------- Anotações aparecendo (com JS e sem “reduzir movimento”) ---------- */
+.motion .sheet:not(.seen) .fields dd,.motion .sheet:not(.seen) .obs{-webkit-clip-path:inset(-.3em 100% -.35em -.4em);clip-path:inset(-.3em 100% -.35em -.4em)}
+.motion .sheet.seen .fields dd,.motion .sheet.seen .obs{-webkit-clip-path:inset(-.3em -.6em -.35em -.4em);clip-path:inset(-.3em -.6em -.35em -.4em);
+  transition:clip-path .7s cubic-bezier(.35,.6,.25,1) calc(var(--k,0)*110ms + 420ms),-webkit-clip-path .7s cubic-bezier(.35,.6,.25,1) calc(var(--k,0)*110ms + 420ms)}
+.motion .sheet:not(.seen) .stamp{opacity:0;transform:rotate(var(--r)) scale(1.6)}
+.motion .sheet.seen .stamp{transition:transform .36s cubic-bezier(.3,1.6,.5,1) var(--sd,1s),opacity .08s linear var(--sd,1s)}
+.motion .sheet:not(.seen) .grid[data-n] i{background:transparent;border-color:var(--rule)}
+.motion .sheet.seen .grid[data-n] i{transition:background-color .18s ease calc(var(--i)*9ms + 600ms),border-color .18s ease calc(var(--i)*9ms + 600ms)}
+
+@media (prefers-reduced-motion:reduce){
+  .js .sheet{transition:opacity .25s ease,visibility 0s linear 0s}
+  .js .sheet.turned{transform:none;opacity:0;transition:opacity .25s ease,visibility 0s linear .25s}
+  .js .sheet::after{display:none}
+  .js .more-panel,.js .sheet.open .more-panel{transition:none}
+  .meter .grid i,.prog span,.choices button{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<main class="stage">
+  <div class="book" id="book">
+
+    <!-- Capa -->
+    <article class="sheet navy" data-id="capa" data-title="Capa" aria-label="Capa">
+      <div class="leaf cover-in">
+        <p class="cover-kicker">Carteira de Trabalho</p>
+        <svg class="foot-mark" viewBox="0 0 100 160" aria-hidden="true"><g fill="currentColor"><path d="M34 50C36 39 66 35 74 47C80 61 76 81 72 101C70 119 70 139 62 149C54 157 42 155 38 145C34 133 40 119 40 105C40 93 30 83 28 67C27 59 31 53 34 50Z"/><circle cx="37" cy="27" r="9.5"/><circle cx="53" cy="21.5" r="6.4"/><circle cx="64.5" cy="25.5" r="5.4"/><circle cx="72.5" cy="32.5" r="4.6"/><circle cx="77.5" cy="41" r="3.9"/></g></svg>
+        <h1>Maternidade e paternidade</h1>
+        <p class="cover-sub">no Direito do Trabalho</p>
+        <p class="cover-hint">Deslize para abrir a carteira</p>
+      </div>
+    </article>
+
+    <!-- 1 -->
+    <article class="sheet" data-id="qualificacao" data-title="Qualificação" data-pg="1" aria-labelledby="t1">
+      <div class="leaf">
+        <header class="page-head"><h2 id="t1">Qualificação</h2><span class="pg">Pág. 1</span></header>
+        <dl class="fields">
+          <div class="field"><dt>Titulares</dt><dd>Mães, pais e quem adota</dd></div>
+          <div class="field"><dt>Base legal</dt><dd>Constituição, CLT, STF e TST</dd></div>
+          <div class="field"><dt>Atualizada em</dt><dd>Novembro de 2026</dd></div>
+        </dl>
+        <p class="txt">Cada folha anota um direito, na ordem em que ele aparece na vida da família.</p>
+        <p class="txt">Para virar a folha, deslize para o lado ou use os botões abaixo.</p>
+        <div class="foot end"><span class="stamp" style="--r:-5deg"><small>Válida em todo o</small>território nacional</span></div>
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="sheet" data-id="prenatal" data-title="Pré-natal" data-pg="2" aria-labelledby="t2">
+      <div class="leaf">
+        <header class="page-head"><h2 id="t2">Pré-natal</h2><span class="pg">Pág. 2</span><p class="when">Durante a gravidez</p></header>
+        <dl class="fields">
+          <div class="field"><dt>Quem</dt><dd>Gestante com carteira assinada</dd></div>
+          <div class="field"><dt>Pode</dt><dd>Sair do trabalho para consultas e exames</dd></div>
+          <div class="field"><dt>Quantas vezes</dt><dd>No mínimo 6 consultas, mais os exames</dd></div>
+          <div class="field"><dt>Desconta do salário?</dt><dd>Não</dd></div>
+        </dl>
+        <p class="obs">E o pai? Pode faltar até 2 dias para acompanhar consultas e exames.</p>
+        <div class="foot"><button class="more-btn" type="button" aria-expanded="false"><span class="ico" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M6 1.5v9M1.5 6h9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>Ver detalhes</button><span class="stamp" style="--r:-7deg"><small>Anotado</small>CLT, art. 392, §4º, II</span></div>
+      </div>
+      <section class="more-panel" aria-label="Detalhes do pré-natal">
+        <div class="more-head"><h3>Detalhes</h3><button class="more-close" type="button">Fechar</button></div>
+        <div class="more-body">
+          <p>“No mínimo” quer dizer que seis consultas não são um limite: a lei garante o tempo necessário para o acompanhamento.</p>
+          <p>Na prática, é uma interrupção do contrato: a gestante não trabalha naquele período, mas recebe normalmente. Vale levar a declaração de comparecimento do serviço de saúde.</p>
+          <p>O direito do pai é para acompanhar a esposa ou companheira, sem desconto no salário. Convenções coletivas podem garantir mais do que a lei.</p>
+          <p class="ref">CF, art. 6º; CLT, arts. 392, §4º, II, e 473, X.</p>
+        </div>
+      </section>
+    </article>
+
+    <!-- 3 -->
+    <article class="sheet" data-id="estabilidade" data-title="Estabilidade" data-pg="3" aria-labelledby="t3">
+      <div class="leaf">
+        <header class="page-head"><h2 id="t3">Estabilidade</h2><span class="pg">Pág. 3</span><p class="when">Da confirmação da gravidez até 5 meses após o parto</p></header>
+        <dl class="fields">
+          <div class="field"><dt>Proteção</dt><dd>Não pode ser demitida sem justa causa</dd></div>
+          <div class="field"><dt>Começa</dt><dd>Na confirmação da gravidez</dd></div>
+          <div class="field"><dt>Termina</dt><dd>5 meses depois do parto</dd></div>
+          <div class="field"><dt>Vale também</dt><dd>No contrato de experiência e no aviso-prévio</dd></div>
+        </dl>
+        <p class="obs">A empresa não sabia da gravidez? A estabilidade vale do mesmo jeito.</p>
+        <div class="foot"><button class="more-btn" type="button" aria-expanded="false"><span class="ico" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M6 1.5v9M1.5 6h9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>Ver detalhes</button><span class="stamp" style="--r:-4deg"><small>Anotado</small>ADCT, art. 10, II, “b”</span></div>
+      </div>
+      <section class="more-panel" aria-label="Detalhes da estabilidade">
+        <div class="more-head"><h3>Detalhes</h3><button class="more-close" type="button">Fechar</button></div>
+        <div class="more-body">
+          <p>Se for demitida nesse período, a trabalhadora pode pedir a volta ao emprego (reintegração). Se o prazo já tiver passado, cabe indenização com os salários e direitos do período.</p>
+          <p>O STF confirmou que basta a gravidez já existir na data da dispensa, mesmo que ninguém soubesse (Tema 497).</p>
+          <p>Estabilidade e licença são coisas diferentes: a estabilidade protege o emprego; a licença garante o afastamento.</p>
+          <p class="ref">ADCT, art. 10, II, “b”; CLT, art. 391-A; TST, Súmula 244; STF, Tema 497.</p>
+        </div>
+      </section>
+    </article>
+
+    <!-- 4 -->
+    <article class="sheet" data-id="funcao" data-title="Mudança de função" data-pg="4" aria-labelledby="t4">
+      <div class="leaf">
+        <header class="page-head"><h2 id="t4">Saúde e mudança de função</h2><span class="pg">Pág. 4</span><p class="when">Durante a gravidez e a amamentação</p></header>
+        <dl class="fields">
+          <div class="field"><dt>Se a saúde exigir</dt><dd>Mudar de função, com recomendação médica</dd></div>
+          <div class="field"><dt>Trabalho insalubre</dt><dd>Afastamento automático da gestante e da lactante</dd></div>
+          <div class="field"><dt>Salário</dt><dd>Mantido, inclusive o adicional de insalubridade</dd></div>
+          <div class="field"><dt>Depois</dt><dd>Volta à função anterior</dd></div>
+        </dl>
+        <div class="foot"><button class="more-btn" type="button" aria-expanded="false"><span class="ico" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M6 1.5v9M1.5 6h9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>Ver detalhes</button><span class="stamp" style="--r:-8deg"><small>Anotado</small>CLT, arts. 392, §4º, I, e 394-A</span></div>
+      </div>
+      <section class="more-panel" aria-label="Detalhes da mudança de função">
+        <div class="more-head"><h3>Detalhes</h3><button class="more-close" type="button">Fechar</button></div>
+        <div class="more-body">
+          <p>Desde a ADI 5938 (STF, 2019), a empresa não pode exigir atestado médico para afastar gestante ou lactante de atividade insalubre.</p>
+          <p>O pai não tem esse direito: a regra protege a saúde de quem está grávida e do bebê. A mãe adotiva tem direito se estiver amamentando.</p>
+          <p class="ref">CLT, arts. 392, §4º, I, e 394-A; STF, ADI 5938.</p>
+        </div>
+      </section>
+    </article>
+
+    <!-- 5 -->
+    <article class="sheet" data-id="licenca" data-title="Licença-maternidade" data-pg="5" aria-labelledby="t5">
+      <div class="leaf">
+        <header class="page-head"><h2 id="t5">Licença-maternidade</h2><span class="pg">Pág. 5</span><p class="when">A partir do parto, ou até 28 dias antes</p></header>
+        <dl class="fields">
+          <div class="field"><dt>Duração</dt><dd>120 dias</dd></div>
+          <div class="field"><dt>Empresa Cidadã</dt><dd>Até 180 dias</dd></div>
+          <div class="field"><dt>Pode começar</dt><dd>Até 28 dias antes do parto</dd></div>
+          <div class="field"><dt>Salário</dt><dd>Integral (se variável, média dos últimos 6 meses)</dd></div>
+        </dl>
+        <p class="obs">O bebê nasceu antes da hora? A licença continua com 120 dias.</p>
+        <div class="foot"><button class="more-btn" type="button" aria-expanded="false"><span class="ico" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M6 1.5v9M1.5 6h9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>Ver detalhes</button><span class="stamp" style="--r:-5deg"><small>Anotado</small>CF, art. 7º, XVIII, e CLT, art. 392</span></div>
+      </div>
+      <section class="more-panel" aria-label="Detalhes da licença-maternidade">
+        <div class="more-head"><h3>Detalhes</h3><button class="more-close" type="button">Fechar</button></div>
+        <div class="more-body">
+          <ul>
+            <li><b>Internação longa:</b> se a mãe ou o bebê ficar internado por mais de 2 semanas, a licença passa a contar da alta (STF, ADI 6327).</li>
+            <li><b>Aborto não criminoso:</b> 2 semanas de afastamento remunerado (CLT, art. 395).</li>
+            <li><b>Bebê natimorto:</b> a licença de 120 dias é mantida.</li>
+            <li><b>Morte da mãe:</b> o cônjuge ou companheiro empregado pode usar o tempo restante da licença (CLT, art. 392-B).</li>
+            <li><b>Licença ou salário-maternidade?</b> A licença é o afastamento; o salário-maternidade é o benefício da Previdência. Na CLT, a empresa paga e depois compensa.</li>
+          </ul>
+          <p class="ref">CF, art. 7º, XVIII; CLT, arts. 392 a 395; Lei 11.770/2008; STF, ADI 6327.</p>
+        </div>
+      </section>
+    </article>
+
+    <!-- 6 -->
+    <article class="sheet" data-id="amamentacao" data-title="Amamentação" data-pg="6" aria-labelledby="t6">
+      <div class="leaf">
+        <header class="page-head"><h2 id="t6">Amamentação</h2><span class="pg">Pág. 6</span><p class="when">Na volta ao trabalho, até o bebê fazer 6 meses</p></header>
+        <dl class="fields">
+          <div class="field"><dt>Pausas</dt><dd>2 de 30 minutos por dia</dd></div>
+          <div class="field"><dt>Até quando</dt><dd>6 meses do bebê, ou mais por indicação médica</dd></div>
+          <div class="field"><dt>Substitui o almoço?</dt><dd>Não, é um intervalo à parte</dd></div>
+          <div class="field"><dt>Empresa com 30 ou mais mulheres acima de 16 anos</dt><dd>Precisa ter local para amamentar ou creche</dd></div>
+        </dl>
+        <div class="foot"><button class="more-btn" type="button" aria-expanded="false"><span class="ico" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M6 1.5v9M1.5 6h9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>Ver detalhes</button><span class="stamp" style="--r:-6deg"><small>Anotado</small>CLT, arts. 389, 396 e 400</span></div>
+      </div>
+      <section class="more-panel" aria-label="Detalhes da amamentação">
+        <div class="more-head"><h3>Detalhes</h3><button class="more-close" type="button">Fechar</button></div>
+        <div class="more-body">
+          <p>Os horários das pausas são combinados entre a trabalhadora e a empresa.</p>
+          <p>Se a empresa não der as pausas, o tempo pode ser pago como hora extra. Dependendo do caso, a recusa também pode gerar indenização por dano moral (Código Civil, arts. 186 e 927).</p>
+          <p>O local precisa ter, no mínimo, berçário, sala de amamentação, cozinha dietética e banheiro. Também vale creche conveniada ou reembolso-creche.</p>
+          <p>Em concursos públicos federais, a mãe pode amamentar durante as provas (Lei 13.872/2019).</p>
+          <p class="ref">CLT, arts. 389, §1º, 396 e 400; Lei 13.872/2019.</p>
+        </div>
+      </section>
+    </article>
+
+    <!-- 7 -->
+    <article class="sheet" data-id="paternidade" data-title="Licença-paternidade" data-pg="7" aria-labelledby="t7">
+      <div class="leaf">
+        <header class="page-head"><h2 id="t7">Licença-paternidade</h2><span class="pg">Pág. 7</span><p class="when">No nascimento ou na adoção, pelas regras de hoje</p></header>
+        <dl class="fields">
+          <div class="field"><dt>Duração</dt><dd>5 dias seguidos</dd></div>
+          <div class="field"><dt>Empresa Cidadã</dt><dd>20 dias (5 + 15)</dd></div>
+        </dl>
+        <div class="days">
+          <div>
+            <p class="days-l"><span>Licença-maternidade</span><b>120 dias</b></p>
+            <div class="grid" data-n="120" role="img" aria-label="120 quadrados, um para cada dia de licença-maternidade"></div>
+          </div>
+          <div>
+            <p class="days-l"><span>Licença-paternidade</span><b>5 dias</b></p>
+            <div class="grid" data-n="5" role="img" aria-label="5 quadrados, um para cada dia de licença-paternidade"></div>
+          </div>
+        </div>
+        <p class="txt">Os 5 dias vêm de uma regra provisória de 1988 que durou mais de 35 anos.</p>
+        <div class="foot"><button class="more-btn" type="button" aria-expanded="false"><span class="ico" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M6 1.5v9M1.5 6h9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>Ver detalhes</button><span class="stamp" style="--r:-7deg"><small>Anotado</small>ADCT, art. 10, §1º</span></div>
+      </div>
+      <section class="more-panel" aria-label="Detalhes da licença-paternidade">
+        <div class="more-head"><h3>Detalhes</h3><button class="more-close" type="button">Fechar</button></div>
+        <div class="more-body">
+          <p>Vale para nascimento e para adoção. A regra de 1988 deveria valer só até o Congresso aprovar uma lei sobre o tema.</p>
+          <p>Para ter os 20 dias da Empresa Cidadã, o pai precisa pedir a prorrogação no prazo e comprovar participação em atividade sobre paternidade responsável (Lei 11.770/2008).</p>
+          <p>Em 2023, o STF reconheceu que faltava a lei prometida pela Constituição e deu prazo ao Congresso para aprová-la (ADO 20). A resposta veio em 2026.</p>
+          <p>Qualquer empregado, pai ou mãe, pode faltar 1 dia por ano para levar filho de até 6 anos ao médico (CLT, art. 473, XI).</p>
+          <p class="ref">CF, art. 7º, XIX; ADCT, art. 10, §1º; CLT, art. 473; Lei 11.770/2008; STF, ADO 20.</p>
+        </div>
+      </section>
+    </article>
+
+    <!-- 8 -->
+    <article class="sheet" data-id="prazos-2027" data-title="O que muda em 2027" data-pg="8" aria-labelledby="t8">
+      <div class="leaf">
+        <header class="page-head"><h2 id="t8">O que muda em 2027</h2><span class="pg">Pág. 8</span><p class="when">Lei 15.371/2026, em vigor a partir de 1º de janeiro de 2027</p></header>
+        <div class="meter">
+          <div class="years" role="group" aria-label="Escolha o período">
+            <button type="button" data-y="hoje" aria-pressed="true">Hoje</button>
+            <button type="button" data-y="2027" aria-pressed="false">2027</button>
+            <button type="button" data-y="2028" aria-pressed="false">2028</button>
+            <button type="button" data-y="2029" aria-pressed="false">2029</button>
+          </div>
+          <p class="days-l"><span>Licença-paternidade, prazo geral</span></p>
+          <p class="meter-n" aria-live="polite"><span id="meterN">5</span><small>dias</small></p>
+          <div class="grid" id="meterGrid" aria-hidden="true"></div>
+          <p class="meter-note" id="meterNote"></p>
+        </div>
+        <dl class="fields">
+          <div class="field"><dt>Pagamento</dt><dd>Salário-paternidade, pela Previdência</dd></div>
+        </dl>
+        <div class="foot"><button class="more-btn" type="button" aria-expanded="false"><span class="ico" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M6 1.5v9M1.5 6h9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>Ver detalhes</button><span class="stamp" style="--r:-5deg"><small>A vigorar</small>Lei 15.371/2026</span></div>
+      </div>
+      <section class="more-panel" aria-label="Detalhes dos novos prazos">
+        <div class="more-head"><h3>Detalhes</h3><button class="more-close" type="button">Fechar</button></div>
+        <div class="more-body">
+          <p>Os 20 dias de 2029 dependem de uma meta fiscal prevista na lei. Se ela não for cumprida, esse prazo é adiado.</p>
+          <p>A lei também cria o salário-paternidade: o pai recebe a remuneração integral durante a licença, e a empresa é reembolsada pela Previdência.</p>
+          <p class="ref">Lei 15.371, de 31 de março de 2026, publicada em 1º de abril de 2026.</p>
+        </div>
+      </section>
+    </article>
+
+    <!-- 9 -->
+    <article class="sheet" data-id="garantias-2027" data-title="Novas garantias do pai" data-pg="9" aria-labelledby="t9">
+      <div class="leaf">
+        <header class="page-head"><h2 id="t9">Novas garantias do pai</h2><span class="pg">Pág. 9</span><p class="when">Também a partir de 1º de janeiro de 2027</p></header>
+        <dl class="fields">
+          <div class="field"><dt>Estabilidade</dt><dd>Do início da licença até 1 mês depois</dd></div>
+          <div class="field"><dt>Aviso à empresa</dt><dd>30 dias antes, com atestado ou termo de guarda</dd></div>
+          <div class="field"><dt>Filho com deficiência</dt><dd>Licença 1/3 maior</dd></div>
+          <div class="field"><dt>Internação ligada ao parto</dt><dd>Licença prorrogada até a alta</dd></div>
+        </dl>
+        <p class="obs">Durante a licença, o pai não pode ter outra atividade remunerada: o tempo é para cuidar da criança.</p>
+        <div class="foot"><button class="more-btn" type="button" aria-expanded="false"><span class="ico" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M6 1.5v9M1.5 6h9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>Ver detalhes</button><span class="stamp" style="--r:-6deg"><small>A vigorar</small>Lei 15.371/2026</span></div>
+      </div>
+      <section class="more-panel" aria-label="Detalhes das novas garantias">
+        <div class="more-head"><h3>Detalhes</h3><button class="more-close" type="button">Fechar</button></div>
+        <div class="more-body">
+          <p>Se o pai for o único responsável (sem mãe no registro civil, ou adoção concedida só a ele), a licença equivale à licença-maternidade, inclusive na duração e na estabilidade.</p>
+          <p>A licença pode ser suspensa ou negada quando houver indícios concretos de violência doméstica ou de abandono material da criança.</p>
+          <p>Em parto antecipado, o afastamento começa na hora, e o pai avisa a empresa assim que possível.</p>
+          <p class="ref">Lei 15.371/2026.</p>
+        </div>
+      </section>
+    </article>
+
+    <!-- 10 -->
+    <article class="sheet" data-id="adocao" data-title="Adoção e outras famílias" data-pg="10" aria-labelledby="t10">
+      <div class="leaf">
+        <header class="page-head"><h2 id="t10">Adoção e outras famílias</h2><span class="pg">Pág. 10</span><p class="when">Na chegada do filho por adoção ou guarda judicial</p></header>
+        <dl class="fields">
+          <div class="field"><dt>Quem adota</dt><dd>120 dias, como a mãe biológica</dd></div>
+          <div class="field"><dt>Empresa Cidadã</dt><dd>Até 180 dias</dd></div>
+          <div class="field"><dt>Idade da criança</dt><dd>Não muda o prazo</dd></div>
+          <div class="field"><dt>Pai que adota sozinho</dt><dd>Também tem os 120 dias</dd></div>
+        </dl>
+        <p class="obs">Em setembro de 2026, o STF igualou as regras para mães biológicas e adotantes.</p>
+        <div class="foot"><button class="more-btn" type="button" aria-expanded="false"><span class="ico" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M6 1.5v9M1.5 6h9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>Ver detalhes</button><span class="stamp" style="--r:-6deg"><small>Anotado</small>STF, ADI 7.495</span></div>
+      </div>
+      <section class="more-panel" aria-label="Detalhes de adoção e outras famílias">
+        <div class="more-head"><h3>Detalhes</h3><button class="more-close" type="button">Fechar</button></div>
+        <div class="more-body">
+          <p>A decisão do STF vale em qualquer tipo de vínculo de trabalho: CLT, serviço público ou militar.</p>
+          <ul>
+            <li><b>Casal que adota junto:</b> a licença-maternidade fica com um dos dois; o outro tem a licença-paternidade.</li>
+            <li><b>Duas mães:</b> a mãe não gestante tem direito à licença-maternidade. Se a companheira gestante já usar, ela tem o período da licença-paternidade (STF, Tema 1.072).</li>
+            <li><b>Pai solo servidor público:</b> com filhos gerados por gestação de substituição, o STF estendeu a ele a licença-maternidade (Tema 1.182). A decisão vale para aquele caso.</li>
+            <li><b>Serviço público:</b> gestante em contrato temporário ou cargo comissionado também tem licença e estabilidade (STF, Tema 542).</li>
+          </ul>
+          <p>Documentos: termo judicial de guarda para fins de adoção ou certidão de nascimento emitida após a adoção.</p>
+          <p class="ref">CLT, arts. 392-A e 392-C; STF, Temas 542, 782, 1.072 e 1.182; ADI 7.495.</p>
+        </div>
+      </section>
+    </article>
+
+    <!-- 11 -->
+    <article class="sheet" data-id="mitos" data-title="Mito ou verdade?" data-pg="11" aria-labelledby="t11">
+      <div class="leaf">
+        <header class="page-head"><h2 id="t11">Mito ou verdade?</h2><span class="pg">Pág. 11</span><p class="when">Escolha uma resposta para cada afirmação</p></header>
+        <p class="quiz-top"><span id="qNum">Afirmação 1 de 9</span><span>Acertos: <b id="qScore">0</b></span></p>
+        <div class="qdots" id="qDots" aria-hidden="true"></div>
+        <div class="qcard" id="qCard">
+          <p class="qtext" id="qText">Se a empresa não sabia da gravidez, pode demitir.</p>
+          <div class="choices" role="group" aria-label="Sua resposta"><button type="button" class="b-mito" data-c="mito">Mito</button><button type="button" class="b-verdade" data-c="verdade">Verdade</button></div>
+          <div class="qres" id="qRes" aria-live="polite" hidden>
+            <p class="res-row"><span class="verdict" id="qVerdict"></span><span class="res" id="qMsg"></span></p>
+            <p class="a" id="qExp"></p>
+          </div>
+        </div>
+        <button type="button" class="pill qnext" id="qNext" hidden>Próxima afirmação</button>
+        <div class="qend" id="qEnd" hidden>
+          <p class="qend-n" id="qEndN" tabindex="-1"></p>
+          <p id="qEndMsg"></p>
+          <button type="button" class="pill" id="qAgain">Jogar de novo</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 12 -->
+    <article class="sheet" data-id="observacoes" data-title="Observações" data-pg="12" aria-labelledby="t12">
+      <div class="leaf">
+        <header class="page-head"><h2 id="t12">Observações</h2><span class="pg">Pág. 12</span></header>
+        <p class="obs">Acordos e convenções coletivas podem garantir prazos e direitos maiores do que a lei. Vale conferir os da sua categoria.</p>
+        <p class="txt">Material acadêmico e informativo, com as regras em vigor em novembro de 2026. Cada caso concreto depende das suas circunstâncias.</p>
+        <div class="foot"><button class="more-btn" type="button" aria-expanded="false"><span class="ico" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M6 1.5v9M1.5 6h9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>Ver referências</button><span class="stamp" style="--r:-5deg"><small>Material</small>acadêmico</span></div>
+      </div>
+      <section class="more-panel" aria-label="Referências">
+        <div class="more-head"><h3>Referências</h3><button class="more-close" type="button">Fechar</button></div>
+        <div class="more-body">
+          <ul>
+            <li>Constituição Federal de 1988 e ADCT.</li>
+            <li>Consolidação das Leis do Trabalho (Decreto-Lei 5.452/1943).</li>
+            <li>Leis 8.212/1991, 8.213/1991, 11.770/2008, 13.257/2016, 13.872/2019 e 15.371/2026.</li>
+            <li>STF: ADO 20; ADIs 2.110, 2.111, 5938, 6327 e 7.495; Temas 72, 497, 542, 782, 1.072 e 1.182.</li>
+            <li>TST: Súmula 244.</li>
+            <li>GRELLA, Leandro Coelho. Licença-paternidade: origens históricas, atualidade comparada e perspectivas. Dissertação (Mestrado), Faculdade de Direito da USP, 2021.</li>
+            <li>SILVA, Cadmiel Peres da; SOUZA, Rafaela Cristina; RODRIGUES, Júlia Loren dos Santos. Interfaces da licença-paternidade no contexto familiar e social: revisão bibliográfica. Revista Sociais e Humanas, v. 36, 2023.</li>
+            <li>TRT-4 e TRT-13: notícias sobre os direitos da trabalhadora que amamenta.</li>
+          </ul>
+        </div>
+      </section>
+    </article>
+
+    <!-- Contracapa -->
+    <article class="sheet navy" data-id="integrantes" data-title="Contracapa" aria-labelledby="t13">
+      <div class="leaf back-in">
+        <h2 id="t13">Integrantes</h2>
+        <p class="team-note">RGM e nome</p>
+        <ol class="team">
+          <li><span class="rgm">11251102787</span><span>Ana Beatriz Schweiger</span></li>
+          <li><span class="rgm">11251101558</span><span>Eduarda Araújo Campos Leite</span></li>
+          <li><span class="rgm">11251101797</span><span>Cauê Sakugawa Lobo</span></li>
+          <li><span class="rgm">11261404410</span><span>Julia Lima Lopes</span></li>
+          <li><span class="rgm">11251100009</span><span>Giovanna Vitória Lisboa</span></li>
+          <li><span class="rgm">11251102010</span><span>Isabely Ferreira Monte</span></li>
+          <li><span class="rgm">11251101550</span><span>Felipe Ferreira Vilar</span></li>
+          <li><span class="rgm">11251505795</span><span>Ana Carolina Antunes Goveia</span></li>
+          <li><span class="rgm">11251100517</span><span>Jean Carlo Stolemberger de Souza</span></li>
+        </ol>
+        <p class="credit"><svg viewBox="0 0 100 160" aria-hidden="true"><g fill="currentColor"><path d="M34 50C36 39 66 35 74 47C80 61 76 81 72 101C70 119 70 139 62 149C54 157 42 155 38 145C34 133 40 119 40 105C40 93 30 83 28 67C27 59 31 53 34 50Z"/><circle cx="37" cy="27" r="9.5"/><circle cx="53" cy="21.5" r="6.4"/><circle cx="64.5" cy="25.5" r="5.4"/><circle cx="72.5" cy="32.5" r="4.6"/><circle cx="77.5" cy="41" r="3.9"/></g></svg><span>Trabalho acadêmico do curso de Direito, Universidade de Mogi das Cruzes, 2026.</span></p>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<nav class="navbar" aria-label="Navegação da carteira">
+  <div class="prog" aria-hidden="true"><span id="prog"></span></div>
+  <button class="nav-btn" id="prev" type="button" aria-label="Folha anterior"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M11 4L6 9l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Anterior</button>
+  <button class="nav-mid" id="idxBtn" type="button" aria-expanded="false" aria-controls="idx"><span id="navPg">Capa</span><small>Índice</small></button>
+  <button class="nav-btn" id="next" type="button" aria-label="Próxima folha">Próxima<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M7 4l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <div class="idx" id="idx" hidden><ol id="idxList"></ol></div>
+</nav>
+<p class="sr" id="live" aria-live="polite"></p>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  root.classList.add('js');
+  if(!reduce)root.classList.add('motion');
+  function each(sel,fn,ctx){Array.prototype.forEach.call((ctx||document).querySelectorAll(sel),fn)}
+  var TURN=reduce?250:700;
+
+  var book=document.getElementById('book');
+  var S=Array.prototype.slice.call(book.querySelectorAll('.sheet'));
+  var N=S.length,c=0,idxOpen=false,keepTimer=null;
+  var LAST_PG=0;S.forEach(function(s){var p=+s.getAttribute('data-pg')||0;if(p>LAST_PG)LAST_PG=p});
+
+  // Ordem de escrita das anotações em cada folha
+  S.forEach(function(s){
+    var k=0;
+    each('.fields dd',function(d){d.style.setProperty('--k',k++)},s);
+    each('.obs',function(o){o.style.setProperty('--k',k++)},s);
+    s.style.setProperty('--sd',(k*110+650)+'ms');
+  });
+  each('.grid[data-n]',function(g){var n=+g.getAttribute('data-n'),h='';for(var i=0;i<n;i++)h+='<i class="on" style="--i:'+i+'"></i>';g.innerHTML=h});
+
+  // ---------- Virar folhas ----------
+  var prev=document.getElementById('prev'),next=document.getElementById('next'),navPg=document.getElementById('navPg'),prog=document.getElementById('prog'),live=document.getElementById('live');
+  function label(s){var p=s.getAttribute('data-pg');return p?('Pág. '+p+' de '+LAST_PG):s.getAttribute('data-title')}
+  function go(n,instant){
+    n=Math.max(0,Math.min(N-1,n));
+    if(n===c&&!instant)return;
+    var o=c;c=n;
+    closeMore();setIdx(false);
+    if(keepTimer){clearTimeout(keepTimer);keepTimer=null}
+    S.forEach(function(s,k){
+      var anim=!instant&&((c>o&&k===o)||(c<o&&k===c));
+      s.classList.toggle('instant',!anim);
+      s.classList.toggle('turned',k<c);
+      s.classList.toggle('below',k>c+1);
+      s.style.zIndex=k<c?(1000+10*k):(1000-10*k);
+      var cur=k===c;s.inert=!cur;s.setAttribute('aria-hidden',cur?'false':'true');
+    });
+    if(!instant&&c<o){ // folha antiga continua visível embaixo enquanto a anterior volta
+      S[o].classList.remove('below');S[o].style.zIndex=1000-10*c-5;
+      keepTimer=setTimeout(function(){S[o].style.zIndex=1000-10*o;if(o>c+1)S[o].classList.add('below')},TURN);
+    }
+    void book.offsetWidth;
+    requestAnimationFrame(function(){S.forEach(function(s){s.classList.remove('instant')})});
+    S[c].classList.add('seen');
+    prev.disabled=c===0;next.disabled=c===N-1;
+    navPg.textContent=label(S[c]);
+    prog.style.transform='scaleX('+(c/(N-1))+')';
+    live.textContent=S[c].getAttribute('data-title')+(S[c].getAttribute('data-pg')?', página '+S[c].getAttribute('data-pg'):'');
+    each('#idxList button',function(b,i){b.setAttribute('aria-current',i===c?'true':'false')});
+    var id=S[c].getAttribute('data-id');
+    if(location.hash!=='#'+id){try{location.replace('#'+id)}catch(e){}}
+    if(c!==0)touched=true;
+  }
+  prev.addEventListener('click',function(){go(c-1)});
+  next.addEventListener('click',function(){go(c+1)});
+  document.addEventListener('keydown',function(e){
+    if(e.target.closest&&e.target.closest('input,textarea'))return;
+    if(e.key==='ArrowRight'||e.key==='PageDown'){go(c+1);e.preventDefault()}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){go(c-1);e.preventDefault()}
+    else if(e.key==='Escape'){closeMore();setIdx(false)}
+  });
+  window.addEventListener('hashchange',function(){var i=find(location.hash.slice(1));if(i>-1&&i!==c)go(i)});
+  function find(id){for(var i=0;i<N;i++)if(S[i].getAttribute('data-id')===id)return i;return -1}
+
+  // Arrastar com o dedo
+  var drag=null,suppress=false,touched=false;
+  book.addEventListener('pointerdown',function(e){
+    if(e.pointerType==='mouse'&&e.button!==0)return;
+    if(e.target.closest('.more-panel'))return;
+    drag={x:e.clientX,y:e.clientY,t:Date.now(),id:e.pointerId,mode:null,dx:0,w:book.clientWidth};
+  });
+  book.addEventListener('pointermove',function(e){
+    if(!drag||e.pointerId!==drag.id)return;
+    var dx=e.clientX-drag.x,dy=e.clientY-drag.y;
+    if(!drag.mode){
+      if(Math.abs(dx)<10&&Math.abs(dy)<10)return;
+      if(Math.abs(dx)>Math.abs(dy)*1.2&&!S[c].classList.contains('open')){
+        if(dx<0&&c<N-1)drag.mode='next';else if(dx>0&&c>0)drag.mode='prev';else{drag.mode='none';return}
+        try{book.setPointerCapture(e.pointerId)}catch(err){}
+        drag.sheet=drag.mode==='next'?S[c]:S[c-1];
+        if(!reduce)drag.sheet.classList.add('dragging');
+        touched=true;
+      }else{drag.mode='none';return}
+    }
+    if(drag.mode==='none')return;
+    drag.dx=dx;
+    if(reduce)return;
+    var a=drag.mode==='next'?Math.max(-180,Math.min(0,dx/drag.w*180)):-180+Math.max(0,Math.min(180,dx/drag.w*180));
+    drag.sheet.style.transform='rotateY('+a.toFixed(2)+'deg)';
+  });
+  function endDrag(e){
+    if(!drag||e.pointerId!==drag.id)return;
+    var d=drag;drag=null;
+    if(!d.mode||d.mode==='none')return;
+    suppress=true;setTimeout(function(){suppress=false},60);
+    var v=Math.abs(d.dx)/Math.max(1,Date.now()-d.t);
+    var commit=Math.abs(d.dx)>d.w*.22||(v>.45&&Math.abs(d.dx)>30);
+    d.sheet.classList.remove('dragging');
+    d.sheet.style.transform='';
+    if(commit)go(d.mode==='next'?c+1:c-1);
+  }
+  book.addEventListener('pointerup',endDrag);
+  book.addEventListener('pointercancel',endDrag);
+  book.addEventListener('click',function(e){
+    if(suppress){e.stopPropagation();e.preventDefault();return}
+    if(S[c].classList.contains('open')&&!e.target.closest('.more-panel')&&!e.target.closest('.more-btn'))closeMore();
+    if(idxOpen)setIdx(false);
+  },true);
+
+  // ---------- Detalhes ----------
+  each('.more-panel',function(p){p.inert=true});
+  function openMore(s){
+    closeMore();
+    s.classList.add('open');
+    var b=s.querySelector('.more-btn'),p=s.querySelector('.more-panel');
+    b.setAttribute('aria-expanded','true');p.inert=false;
+    setTimeout(function(){var x=p.querySelector('.more-close');if(x)x.focus({preventScroll:true})},60);
+  }
+  function closeMore(){
+    each('.sheet.open',function(s){
+      s.classList.remove('open');
+      var b=s.querySelector('.more-btn'),p=s.querySelector('.more-panel');
+      b.setAttribute('aria-expanded','false');p.inert=true;
+      if(p.contains(document.activeElement))b.focus({preventScroll:true});
+    });
+  }
+  each('.more-btn',function(b){b.addEventListener('click',function(e){e.stopPropagation();openMore(b.closest('.sheet'))})});
+  each('.more-close',function(b){b.addEventListener('click',function(e){e.stopPropagation();closeMore()})});
+
+  // ---------- Índice ----------
+  var ib=document.getElementById('idxBtn'),idx=document.getElementById('idx'),il=document.getElementById('idxList');
+  S.forEach(function(s,i){
+    var li=document.createElement('li'),b=document.createElement('button'),sp=document.createElement('span');
+    b.type='button';sp.textContent=s.getAttribute('data-pg')||'';
+    b.appendChild(sp);b.appendChild(document.createTextNode(s.getAttribute('data-id')==='integrantes'?'Contracapa: integrantes':s.getAttribute('data-title')));
+    b.addEventListener('click',function(){go(i)});
+    li.appendChild(b);il.appendChild(li);
+  });
+  function setIdx(o){
+    idxOpen=o;idx.hidden=!o;ib.setAttribute('aria-expanded',o?'true':'false');
+    if(o){var cur=il.querySelector('[aria-current="true"]');if(cur)cur.focus({preventScroll:true})}
+  }
+  ib.addEventListener('click',function(e){e.stopPropagation();setIdx(!idxOpen)});
+
+  // ---------- Linha do tempo 2027 ----------
+  var mg=document.getElementById('meterGrid'),mN=document.getElementById('meterN'),mNote=document.getElementById('meterNote');
+  var Y={
+    'hoje':{n:5,ec:15,t:'Regra atual, até 31 de dezembro de 2026. O tracejado mostra os 15 dias a mais nas empresas do Programa Empresa Cidadã.'},
+    '2027':{n:10,ec:0,t:'Prazo geral a partir de 1º de janeiro de 2027.'},
+    '2028':{n:15,ec:0,t:'Prazo geral a partir de 1º de janeiro de 2028.'},
+    '2029':{n:20,ec:0,t:'A partir de 1º de janeiro de 2029, se for cumprida a meta fiscal prevista na lei.'}
+  };
+  var h='';for(var i=0;i<20;i++)h+='<i style="--i:'+i+'"></i>';mg.innerHTML=h;
+  function setYear(k){
+    var d=Y[k];mN.textContent=d.n;mNote.textContent=d.t;
+    Array.prototype.forEach.call(mg.children,function(el,i){el.className=i<d.n?'on':(i<d.n+d.ec?'ec':'')});
+    each('.years button',function(b){b.setAttribute('aria-pressed',b.getAttribute('data-y')===k?'true':'false')});
+  }
+  each('.years button',function(b){b.addEventListener('click',function(){setYear(b.getAttribute('data-y'))})});
+  setYear('hoje');
+
+  // ---------- Mito ou verdade ----------
+  var Q=[
+    ['Se a empresa não sabia da gravidez, pode demitir.','mito','A estabilidade vale mesmo que ninguém soubesse da gravidez (STF, Tema 497).'],
+    ['O pai pode faltar até 2 dias para acompanhar consultas e exames do pré-natal.','verdade','Sem desconto no salário, para acompanhar a esposa ou companheira (CLT, art. 473, X).'],
+    ['A consulta de pré-natal pode ser descontada do salário.','mito','A lei garante a saída sem prejuízo do salário (CLT, art. 392, §4º, II).'],
+    ['A estabilidade da gestante também vale no contrato de experiência.','verdade','A proteção alcança contratos por prazo determinado, como o de experiência (TST, Súmula 244).'],
+    ['A pausa para amamentar pode ser usada como horário de almoço.','mito','São dois intervalos à parte, além do intervalo de refeição (CLT, art. 396).'],
+    ['Empresa com 30 ou mais mulheres acima de 16 anos precisa garantir um local para a amamentação.','verdade','Pode ser um espaço próprio, uma creche conveniada ou o reembolso-creche (CLT, arts. 389 e 400).'],
+    ['Gestante em atividade insalubre precisa de atestado para ser afastada.','mito','O afastamento é automático, sem atestado (STF, ADI 5938).'],
+    ['Quem adota uma criança mais velha tem licença menor.','mito','O prazo é o mesmo, qualquer que seja a idade da criança (STF, Tema 782).'],
+    ['Em 2026, a licença-paternidade padrão ainda é de 5 dias.','verdade','Os 10 dias da nova lei só valem a partir de 1º de janeiro de 2027.']
+  ];
+  var qi=0,hits=0,res=[];
+  var qNum=document.getElementById('qNum'),qScore=document.getElementById('qScore'),qDots=document.getElementById('qDots'),qCard=document.getElementById('qCard'),qText=document.getElementById('qText'),
+      qRes=document.getElementById('qRes'),qVerdict=document.getElementById('qVerdict'),qMsg=document.getElementById('qMsg'),qExp=document.getElementById('qExp'),
+      qNext=document.getElementById('qNext'),qEnd=document.getElementById('qEnd'),qEndN=document.getElementById('qEndN'),qEndMsg=document.getElementById('qEndMsg');
+  var qBtns=Array.prototype.slice.call(qCard.querySelectorAll('.choices button'));
+  function dots(){var h='';for(var i=0;i<Q.length;i++)h+='<i class="'+(res[i]===true?'ok':res[i]===false?'no':(i===qi?'now':''))+'"></i>';qDots.innerHTML=h}
+  function showQ(){
+    var q=Q[qi];
+    qNum.textContent='Afirmação '+(qi+1)+' de '+Q.length;
+    qText.textContent=q[0];qRes.hidden=true;qNext.hidden=true;
+    qBtns.forEach(function(b){b.disabled=false;b.classList.remove('picked')});
+    qCard.hidden=false;qEnd.hidden=true;qScore.textContent=hits;dots();
+  }
+  qBtns.forEach(function(b){b.addEventListener('click',function(){
+    if(b.disabled)return;
+    var q=Q[qi],ok=b.getAttribute('data-c')===q[1];
+    if(ok)hits++;res[qi]=ok;
+    qBtns.forEach(function(x){x.disabled=true});b.classList.add('picked');
+    qVerdict.className='verdict '+q[1];qVerdict.textContent=q[1]==='mito'?'Mito':'Verdade';
+    qMsg.textContent=ok?'Você acertou!':'Não foi dessa vez.';
+    qExp.textContent=q[2];qRes.hidden=false;
+    qNext.textContent=qi<Q.length-1?'Próxima afirmação':'Ver resultado';qNext.hidden=false;
+    qScore.textContent=hits;dots();
+    qNext.focus({preventScroll:true});
+  })});
+  qNext.addEventListener('click',function(){
+    if(qi<Q.length-1){qi++;showQ();qBtns[0].focus({preventScroll:true});return}
+    qCard.hidden=true;qNext.hidden=true;qEnd.hidden=false;
+    qNum.textContent='Resultado';
+    qEndN.textContent='Você acertou '+hits+' de '+Q.length+'.';
+    qEndMsg.textContent=hits===Q.length?'Gabaritou! Você conhece bem esses direitos.':(hits>=6?'Mandou bem. Vale rever as folhas das respostas que errou.':'Vale folhear a carteira de novo e tentar outra vez.');
+    qEndN.focus({preventScroll:true});
+  });
+  document.getElementById('qAgain').addEventListener('click',function(){qi=0;hits=0;res=[];showQ();qBtns[0].focus({preventScroll:true})});
+  showQ();
+
+  // ---------- Início ----------
+  var start=find(location.hash.slice(1));
+  c=-1;go(start>-1?start:0,true);
+  if(!reduce&&c===0){
+    setTimeout(function(){
+      if(touched||c!==0)return;
+      S[0].style.transform='rotateY(-18deg)';
+      setTimeout(function(){if(!drag)S[0].style.transform=''},650);
+    },900);
+  }
+})();
+</script>
+</body>
+</html>
